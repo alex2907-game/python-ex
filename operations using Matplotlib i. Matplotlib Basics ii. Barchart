@@ -1,0 +1,43 @@
+i. Matplotlib Basics
+ii. Barchart
+
+1. Matplotlib Basics
+Code:
+
+import matplotlib.pyplot as plt
+
+#sample data for plotting
+x=[1,2,3,4,5]
+y=[2,4,6,8,10]
+
+#creating a simple line plot
+plt.plot(x, y,label='Line Plot',color='blue',marker='o')
+
+#Adding title and labels
+plt.title('Matplotlib Basic Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+
+#Displaying the plot
+plt.legend()
+plt.show()
+
+2. Barchart
+Code:
+
+import matplotlib.pyplot as plt
+
+# Data for the bar chart
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [10, 20, 15, 30, 25]
+
+# Creating the bar chart
+plt.bar(categories, values, color='powderblue')
+
+# Adding title and labels
+plt.title('Bar Chart Example')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+
+# Displaying the plot
+plt.show()
