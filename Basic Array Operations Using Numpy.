@@ -1,0 +1,39 @@
+Code:
+import numpy as np
+
+# 1. Creating Array
+arr = np.array([10, 20, 30, 40, 50])
+
+# 2. Displaying Array
+print("Array Elements:")
+print(arr)
+
+# 3. Array Operations
+print("\nArray Operations:")
+print("Addition (+10):", arr + 10)
+print("Subtraction (-5):", arr - 5)
+
+# 4. Element-wise Multiplication
+arr2 = np.array([1, 2, 3, 4, 5])
+print("\nElement-wise Multiplication:")
+print("Second Array:", arr2)
+print("Result:", arr * arr2)
+
+# 5. Accessing Array Elements
+print("\nAccessing Array Elements:")
+print("First Element:", arr[0])
+print("Third Element:", arr[2])
+print("Last Element:", arr[-1])
+
+# 6. Slicing the Array
+print("\nSlicing the Array:")
+print("Elements from index 1 to 3:", arr[1:4])
+print("First three elements:", arr[:3])
+print("Last two elements:", arr[3:])
+
+# 7. Array Properties
+print("\nArray Properties:")
+print("Dimension:", arr.ndim)
+print("Shape:", arr.shape)
+print("Size:", arr.size)
+print("Data Type:", arr.dtype)
