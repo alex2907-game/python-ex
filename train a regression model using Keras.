@@ -1,0 +1,64 @@
+small code:
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1,2,3,4,5])
+y = np.array([2,4,6,8,10])
+
+model = tf.keras.Sequential([
+    tf.keras.Input(shape=(1,)),
+    tf.keras.layers.Dense(1)
+])
+
+model.compile(optimizer="sgd", loss="mse")
+
+model.fit(x, y, epochs=100, verbose=0)
+
+p = model.predict(x, verbose=0)
+
+plt.scatter(x, y)
+plt.plot(x, p)
+plt.show()
+big code:
+# Write a Python Program to train a regression model using Keras
+
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+# Generate sample data (y = 3x + 5)
+X = np.linspace(0, 10, 100)
+y = 3 * X + 5
+
+# Split data into training and testing sets
+train_size = int(0.8 * len(X))
+X_train, X_test = X[:train_size], X[train_size:]
+y_train, y_test = y[:train_size], y[train_size:]
+
+# Build the regression model
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(1, input_shape=(1,))
+])
+
+# Compile the model
+model.compile(optimizer='adam', loss='mean_squared_error')
+
+# Train the model
+model.fit(X_train, y_train, epochs=100, batch_size=10, verbose=1)
+
+# Evaluate the model
+loss = model.evaluate(X_test, y_test)
+print("Test Loss:", loss)
+
+# Predict values
+y_pred = model.predict(X_test)
+
+# Plot results
+plt.scatter(X_test, y_test, color='blue', label='Actual Values')
+plt.plot(X_test, y_pred, color='red', label='Predicted Values')
+plt.xlabel('X')
+plt.ylabel('y')
+plt.title('Keras Regression Model')
+plt.legend()
+plt.show()
