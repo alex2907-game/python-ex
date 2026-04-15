@@ -1,0 +1,48 @@
+# Practical.No 15
+# Time Series Prediction using Keras (Short Version)
+
+import numpy as np
+import matplotlib.pyplot as plt
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense
+from sklearn.preprocessing import MinMaxScaler
+
+# Create simple time series data
+data = np.sin(np.arange(0, 50, 0.1)).reshape(-1, 1)
+
+# Normalize data
+scaler = MinMaxScaler()
+data = scaler.fit_transform(data)
+
+# Prepare dataset
+X, y = [], []
+time_step = 5
+for i in range(len(data) - time_step):
+    X.append(data[i:i + time_step])
+    y.append(data[i + time_step])
+
+X, y = np.array(X), np.array(y)
+
+# Split data
+split = int(0.8 * len(X))
+X_train, X_test = X[:split], X[split:]
+y_train, y_test = y[:split], y[split:]
+
+# Build LSTM model
+model = Sequential([
+    LSTM(20, input_shape=(time_step, 1)),
+    Dense(1)
+])
+
+model.compile(optimizer='adam', loss='mse')
+model.fit(X_train, y_train, epochs=5, batch_size=16, verbose=1)
+
+# Predict
+y_pred = model.predict(X_test)
+
+# Plot
+plt.plot(scaler.inverse_transform(y_test), label='Actual')
+plt.plot(scaler.inverse_transform(y_pred), label='Predicted')
+plt.title('Time Series Prediction')
+plt.legend()
+plt.show()
