@@ -1,0 +1,73 @@
+Code:
+# Array operations using Python (NumPy)
+# Array operations are classified into three main categories:
+# 1. Arithmetic Operations
+# 2. Mathematical Operations
+# 3. Reshaping and Transpose Operations
+
+import numpy as np
+
+# -------------------------------
+# 1. Arithmetic Operations on Arrays
+# -------------------------------
+
+array1 = np.array([12, 34, 56, 24])
+array2 = np.array([2, 4, 6, 8])
+
+# Addition
+addition = array1 + array2
+print("\nAddition:", addition)
+
+# Subtraction
+subtraction = array1 - array2
+print("\nSubtraction:", subtraction)
+
+# Multiplication
+multiplication = array1 * array2
+print("\nMultiplication:", multiplication)
+
+# Division
+division = array1 / array2
+print("\nDivision:", division)
+
+# Dot Product
+dot_product = np.dot(array1, array2)
+print("\nDot Product:", dot_product)
+
+# -------------------------------
+# 2. Mathematical Operations on Arrays
+# -------------------------------
+
+array3 = np.array([2, 4, 6, 8])
+
+# Sum
+total_sum = array3.sum()
+print("\nSum:", total_sum)
+
+# Minimum value
+minimum_value = array3.min()
+print("\nMinimum:", minimum_value)
+
+# Maximum value
+maximum_value = array3.max()
+print("\nMaximum:", maximum_value)
+
+# Mean (Average)
+mean_value = array3.mean()
+print("\nMean:", mean_value)
+
+# -------------------------------
+# 3. Reshaping and Transpose Operations
+# -------------------------------
+
+array4 = np.array([1, 2, 3, 4, 5, 6])
+
+# Reshape (1D to 2D)
+reshaped_array = array4.reshape(2, 3)
+print("\nReshaped Array (2x3):")
+print(reshaped_array)
+
+# Transpose of reshaped array
+transpose_array = reshaped_array.T
+print("\nTranspose of Reshaped Array:")
+print(transpose_array)
