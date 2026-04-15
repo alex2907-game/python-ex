@@ -1,0 +1,36 @@
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate some data for regression (simple linear relationship)
+X = np.linspace(0, 10, 100)   # 100 data points between 0 and 10
+y = 2 * X + 1                # Linear relationship (y = 2x + 1)
+
+# Split the data into training and testing sets (80% train, 20% test)
+train_size = int(0.8 * len(X))
+X_train, X_test = X[:train_size], X[train_size:]
+y_train, y_test = y[:train_size], y[train_size:]
+
+# Build a simple regression model
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(1, input_dim=1)  # Single neuron for linear regression
+])
+# Compile the model
+model.compile(optimizer='adam', loss='mean_squared_error')
+
+# Train the model
+model.fit(X_train, y_train, epochs=100, batch_size=10, verbose=1)
+
+# Evaluate the model
+loss = model.evaluate(X_test, y_test)
+print("\nTest Loss:", loss)
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Plot the results
+plt.scatter(X_test, y_test, color='blue', label='True values')
+plt.plot(X_test, y_pred, color='red', label='Predicted values')
+plt.xlabel('X')
+plt.ylabel('y')
+plt.legend()
+plt.show()
