@@ -1,0 +1,73 @@
+i. Strings and regular expressions
+ii. Timeseries and filtering
+iii. Plotting
+
+1. Strings and regular expressions 
+Code:
+
+import pandas as pd   
+
+# List containing usernames with numbers
+username_data = ['sejal123', 'prachi098', 'shubahm567', 'saniya498']
+
+# Convert list into a pandas Series
+series = pd.Series(username_data)
+
+# Extract digits from each string using regular expression
+# (\d+) matches one or more digits
+# expand=False returns the result as a Series
+extracting = series.str.extract('(\d+)', expand=False)
+
+# Print the Original series
+print('Original series:\n',series)
+# Print the extracted digits
+print('\nExtracting series:\n',extracting)
+
+2. Timeseries and filtering
+Code:
+
+import pandas as pd
+
+# Creating a time series using pandas date_range
+dates = pd.date_range('2023-01-01', periods=6, freq='D')  # 6 days starting from '2023-01-01'
+data = [10, 20, 30, 40, 50, 60]
+
+# Creating a DataFrame with the time series
+df = pd.DataFrame({'Date': dates, 'Value': data})
+
+# Displaying the DataFrame
+print("Original Time Series Data:")
+print(df)
+
+# Filtering data to select rows where the date is after '2023-01-03'
+filtered_df = df[df['Date'] > '2023-01-03']
+
+# Displaying the filtered DataFrame
+print("\nFiltered Time Series (Date > '2023-01-03'):")
+print(filtered_df)
+
+3. Plotting in Pandas
+Code:
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Creating a simple DataFrame with some data
+data = {
+    'Year': [2020, 2021, 2022, 2023, 2024],
+    'Revenue': [1500, 1600, 1700, 1800, 1900]
+}
+
+df = pd.DataFrame(data)
+
+# Plotting the data
+df.plot(
+    x='Year',
+    y='Revenue',
+    kind='line',
+    marker='o',
+    title='Revenue Over Time'
+)
+
+# Display the plot
+plt.show()
