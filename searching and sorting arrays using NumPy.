@@ -1,0 +1,35 @@
+Code:
+import numpy as np
+
+# Create a NumPy array
+arr = np.array([10, 2, 33, 14, 5, 40, 25])
+
+# Sorting the array in ascending order
+sorted_arr = np.sort(arr)
+print("Sorted array in ascending order:")
+print(sorted_arr)
+
+# Sorting the array in descending order (using np.sort and reversing the result)
+sorted_arr_desc = np.sort(arr)[::-1]
+print("\nSorted array in descending order:")
+print(sorted_arr_desc)
+
+# Searching for an element (e.g., check if 14 is in the array)
+search_element = 14
+index_of_element = np.where(arr == search_element)
+print(f"\nIndex of element {search_element}: {index_of_element}")
+
+# Searching for an element that is not in the array
+search_element_not_found = 50
+index_not_found = np.where(arr == search_element_not_found)
+print(f"\nIndex of element {search_element_not_found}: {index_not_found}")
+
+# Searching for the first occurrence of the maximum element
+max_index = np.argmax(arr)
+print(f"\nIndex of the maximum element: {max_index}")
+print(f"Maximum element: {arr[max_index]}")
+
+# Searching for the first occurrence of the minimum element
+min_index = np.argmin(arr)
+print(f"\nIndex of the minimum element: {min_index}")
+print(f"Minimum element: {arr[min_index]}")
