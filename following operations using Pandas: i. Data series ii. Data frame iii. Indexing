@@ -1,0 +1,65 @@
+i. Data series
+ii. Data frame
+iii. Indexing
+
+1. Data Series in Pandas
+Code:
+
+#Data series in pandas
+import pandas as pd
+
+data = [12,23,45,56,15,45]
+#Define the series 
+series = pd.Series(data)
+#Displaying the series
+print("Data Series: ")
+print(series)
+
+#Displaying perticular data item in the series
+print("Data Series Index 3: ",series[3])
+
+2. Data Frame in Pandas
+Code:
+
+#data frame in pandas
+import pandas as pd
+
+data = {
+        "Name" : ["Sejal","Vrushali","Saniya","Prachi"],
+        "Education" : ["Post Graduate","Graduate","Post Graduate","Post Graduate"],
+        "CGPA" : [10.00,8.90,8.50,10.00]
+    }
+#creating dataframe
+Student_Info = pd.DataFrame(data)
+
+#Accessing dataframe
+print("Student information:")
+print(Student_Info)
+
+#Accessing specific column
+print("\nStudent CGPA:")
+print(Student_Info["CGPA"])
+
+3. Indexing In Data Frame
+Code:
+
+#data frame in pandas
+import pandas as pd
+
+data = {
+        "Name" : ["Sejal","Vrushali","Saniya","Prachi"],
+        "Education" : ["Post Graduate","Graduate","Post Graduate","Post Graduate"],
+        "CGPA" : [10.00,8.90,8.50,10.00]
+    }
+#creating dataframe
+Student_Info = pd.DataFrame(data)
+#setting index
+Student_Info.index=["a","b","c","d"]
+
+#Accessing dataframe
+print("Student information with Index(a,b,c,d):")
+print(Student_Info)
+
+#Accessing specific column
+print("\nStudent CGPA with Index(a,b,c,d):")
+print(Student_Info["CGPA"])
